@@ -18,14 +18,14 @@ class TwoFactorAuthenticationController extends Controller implements HasMiddlew
     public static function middleware(): array
     {
         return Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
-            ? [new Middleware('password.confirm', only: ['show'])]
+            ? [new Middleware('password.confirm', only: ['__invoke'])]
             : [];
     }
 
     /**
      * Show the user's two-factor authentication settings page.
      */
-    public function show(TwoFactorAuthenticationRequest $request): Response
+    public function __invoke(TwoFactorAuthenticationRequest $request): Response
     {
         $request->ensureStateIsValid();
 
