@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', Controllers\IndexController::class)
     ->name('home');
@@ -42,3 +41,17 @@ Route::get('settings/two-factor', Controllers\Settings\TwoFactorAuthenticationCo
 Route::get('settings/appearance', Controllers\Settings\AppearanceController::class)
     ->middleware(['auth'])
     ->name('settings.appearance.edit');
+
+Route::get('chats', Controllers\Chats\IndexController::class)
+    ->middleware(['auth'])
+    ->name('chats.index');
+
+Route::get('chats/{user}', Controllers\Chats\ShowController::class)
+    ->middleware(['auth'])
+    ->name('chats.show');
+
+Route::post('chats/{user}', Controllers\Chats\StoreController::class)
+    ->middleware(['auth'])
+    ->name('chats.messages.store');
+
+

@@ -1,4 +1,5 @@
 import { AppPageProps } from '@/types/index';
+import type Echo from 'laravel-echo';
 
 // Extend ImportMeta interface for Vite...
 declare module 'vite/client' {
@@ -24,3 +25,4 @@ declare module 'vue' {
         $headManager: ReturnType<typeof createHeadManager>;
     }
 }
+

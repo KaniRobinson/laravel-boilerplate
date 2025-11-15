@@ -6,10 +6,7 @@ import { Head } from '@inertiajs/vue3';
 import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard().url,
-    },
+    { title: 'Dashboard', href: dashboard().url },
 ];
 </script>
 
